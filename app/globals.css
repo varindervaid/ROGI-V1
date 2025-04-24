@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Inter", sans-serif;
+  color: black; /* Default text color to black */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Add purple color variables */
+    --color-purple-50: #f5f3ff;
+    --color-purple-100: #ede9fe;
+    --color-purple-200: #ddd6fe;
+    --color-purple-300: #c4b5fd;
+    --color-purple-400: #a78bfa;
+    --color-purple-500: #8b5cf6;
+    --color-purple-600: #7c3aed;
+    --color-purple-700: #6d28d9;
+    --color-purple-800: #5b21b6;
+    --color-purple-900: #4c1d95;
+    --color-purple-950: #2e1065;
+
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%; /* Default text color to black */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Purple primary (Stripe-like) */
+    --primary: 265 89% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Light purple secondary */
+    --secondary: 265 89% 96%;
+    --secondary-foreground: 265 89% 40%;
+
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+
+    /* Teal accents */
+    --accent: 180 100% 40%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 265 89% 50%;
+
+    /* Chart colors */
+    --chart-1: 265 89% 50%;
+    --chart-2: 180 100% 40%;
+    --chart-3: 265 60% 70%;
+    --chart-4: 180 70% 60%;
+    --chart-5: 265 40% 40%;
+
+    --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 265 89% 50%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 265 89% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Purple primary (Stripe-like) */
+    --primary: 265 89% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Dark purple secondary */
+    --secondary: 265 50% 20%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    /* Teal accents */
+    --accent: 180 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 265 89% 60%;
+
+    /* Chart colors */
+    --chart-1: 265 89% 60%;
+    --chart-2: 180 100% 50%;
+    --chart-3: 265 60% 70%;
+    --chart-4: 180 70% 60%;
+    --chart-5: 265 40% 40%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 265 89% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 265 89% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom navigation menu styles to override teal hover */
+.NavigationMenuContent {
+  @apply bg-white;
+}
+
+.NavigationMenuTrigger:hover,
+.NavigationMenuLink:hover {
+  @apply bg-secondary text-primary;
+}
+
+/* Keep the teal color for buttons */
+.btn-primary:hover,
+.btn-secondary:hover {
+  @apply bg-accent text-accent-foreground;
+}
+
+@keyframes accordionDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordionUp {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordionDown 300ms ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordionUp 300ms ease-out;
+}
